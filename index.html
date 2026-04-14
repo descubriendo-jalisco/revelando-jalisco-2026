@@ -1,24 +1,27 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gobierno del Estado | Visita Jalisco 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Colores Institucionales "Falsos" */
-            --gob-green: #0c231e;
-            --gob-gold: #b38e5d;
-            --gob-red: #8b1c31;
-            --bg-color: #f4f6f8;
+            /* Colores Institucionales (Folleto) */
+            --gob-green: #117a42;
+            --gob-gold: #e7a637;
+            --gob-red: #df3061;
+            --bg-color: #f2e4c9;
             --text-color: #333;
             --glitch-intensity: 0px;
             --hue-shift: 0deg;
 
-            /* Fuentes */
-            --font-main: 'Arial', sans-serif;
-            --font-serif: 'Times New Roman', serif;
+            /* Fuentes Folleto */
+            --font-main: 'Oswald', sans-serif;
+            --font-serif: 'Anton', Impact, sans-serif;
         }
 
         * {
@@ -32,6 +35,11 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            text-transform: uppercase;
         }
 
         /* Contenedor principal que recibirá los filtros visuales sin romper position fixed */
@@ -114,9 +122,9 @@
         }
 
         .subtitle {
-            font-family: var(--font-serif);
+            font-family: var(--font-main);
             color: #666;
-            font-style: italic;
+            letter-spacing: 0.5px;
         }
 
         nav {
