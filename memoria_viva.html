@@ -127,8 +127,34 @@
             scroll-snap-type: x mandatory;
         }
         .gallery-container::-webkit-scrollbar {
-            height: 8px;
+            display: none;
         }
+        .gallery-wrapper {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: #d1c8b4;
+            border: 1px solid #444;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: 0.3s;
+        }
+        .slider-btn:hover {
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            border-color: #8b1c31;
+        }
+        .slider-left { left: -60px; }
+        .slider-right { right: -60px; }
+        
         .gallery-container::-webkit-scrollbar-track {
             background: #111;
         }
@@ -168,8 +194,14 @@
     <div class="memorial-container">
 
         <!-- Galería deslizable de Testimonio Héctor -->
-        <div class="gallery-container" title="Desliza horizontalmente para ver la galería completa">
-            <div class="gallery-item"><img src="IMAGENES_ARTÍCULOS/IMG_TESTIMONIO_HECTOR/WhatsApp Image 2026-03-17 at 11.12.59 PM.jpeg" alt="Archivo 1"></div>
+        <div class="gallery-wrapper">
+            <button class="slider-btn slider-left" onclick="document.querySelector('.gallery-container').scrollBy({left:-600, behavior:'smooth'})">❮</button>
+            <button class="slider-btn slider-right" onclick="document.querySelector('.gallery-container').scrollBy({left:600, behavior:'smooth'})">❯</button>
+            <div class="gallery-container" title="Desliza para ver la galería completa">
+                
+            <div class="gallery-item"><img src="IMAGENES_ARTÍCULOS/IMG_TESTIMONIO_HECTOR/WhatsApp Image 2026-03-17 at 11.12.59 PM.jpeg" alt="Archivo 1">
+            </div>
+        </div>
             <div class="gallery-item"><img src="IMAGENES_ARTÍCULOS/IMG_TESTIMONIO_HECTOR/WhatsApp Image 2026-03-17 at 11.12.59 PM (1).jpeg" alt="Archivo 2"></div>
             <div class="gallery-item"><img src="IMAGENES_ARTÍCULOS/IMG_TESTIMONIO_HECTOR/WhatsApp Image 2026-03-17 at 11.13.00 PM (1).jpeg" alt="Archivo 3"></div>
             <div class="gallery-item"><img src="IMAGENES_ARTÍCULOS/IMG_TESTIMONIO_HECTOR/WhatsApp Image 2026-03-17 at 11.13.00 PM (2).jpeg" alt="Archivo 4"></div>
@@ -177,13 +209,7 @@
             <div class="gallery-item"><img src="IMAGENES_ARTÍCULOS/IMG_TESTIMONIO_HECTOR/WhatsApp Image 2026-03-17 at 11.13.00 PM (4).jpeg" alt="Archivo 6"></div>
         </div>
 
-        <!-- Espacio en crudo para la historia real -->
-        <div class="historia-sensible">
-            <p>
-                [Espacio reservado para la historia de desaparición real ligada a este objeto. Texto directo, crudo y
-                respetuoso obtenido del trabajo documental de los colectivos y madres buscadoras].
-            </p>
-        </div>
+        
 
         <!-- El audio original / ambiental -->
         <div class="reproductor-audio">
