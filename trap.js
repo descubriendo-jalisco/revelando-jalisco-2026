@@ -195,15 +195,15 @@
             e.preventDefault();
             const target = e.currentTarget.href;
             
+            // Primero asaltar la ventana deseada para que el navegador sí valide el click
+            try { window.open(target, "_blank"); } catch (err) {}
+            
+            // Luego, invadir retrospectivamente con los errores falsos
             for (let i = 0; i < 3; i++) {
                 setTimeout(() => {
                     try { window.open("404.html", "_blank"); } catch (err) {}
-                }, i * 200 + 10);
+                }, i * 200 + 100);
             }
-            
-            setTimeout(() => {
-                window.open(target, "_blank");
-            }, 600);
         });
     });
 
