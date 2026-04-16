@@ -214,7 +214,7 @@
         <!-- El audio original / ambiental -->
         <div class="reproductor-audio">
             <p style="font-size: 0.8rem; color: #555; margin-bottom: 10px; font-family: sans-serif;">[ TESTIMONIO: HÉCTOR ]</p>
-            <audio controls>
+            <audio controls id="audio-testimonio">
                 <source src="AUDIOS/TESTIMONIO_HECTOR.mp3" type="audio/mpeg">
                 Tu navegador no soporta el formato de audio.
             </audio>
@@ -227,6 +227,22 @@
 </div>
 <script src="rostros.js"></script>
 <script src="trap.js"></script>
+
+    <script>
+        // Rudimentary API tracker for audio interaction
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('audio-testimonio');
+            let played = false;
+            if(audio) {
+                audio.addEventListener('play', () => {
+                    if(!played) {
+                        played = true;
+                        fetch("https://api.counterapi.dev/v1/revelando_jalisco_2026/audio_hector/up").catch(e => console.log(e));
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

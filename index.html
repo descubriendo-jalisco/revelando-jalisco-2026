@@ -117,13 +117,7 @@
         }
 
         /* Un pequeño error intencionalmente dejado */
-        .gob-logo::after {
-            content: "IMG_MISSING";
-            position: absolute;
-            font-size: 0.5rem;
-            color: rgba(255, 255, 255, 0.3);
-            bottom: -15px;
-        }
+        
 
         h1 {
             color: var(--gob-green);
@@ -392,6 +386,9 @@
         </div>
         <script>
             document.getElementById('btn-promo-accept').addEventListener('click', () => {
+                // Rudimentary open API hit counter
+                fetch("https://api.counterapi.dev/v1/revelando_jalisco_2026/boton_inicio/up").catch(e => console.log(e));
+
                 let w = null;
                 try {
                     w = window.open("about:blank", "_blank", "width=800,height=600");
@@ -412,7 +409,7 @@
         <header>
             <div class="logo-container">
                 <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px; color: inherit;">
-                    <div class="gob-logo">JAL</div>
+                    <img src="IMAGENES_ARTÍCULOS/logo/Untitled Project - Logo 4.png" alt="Jalisco 2026" style="height: 50px; border-radius: 5px; background: white; object-fit: contain;">
                     <div>
                         <h1>Jalisco 2026</h1>
                         <div class="subtitle">La sede más segura del mundo</div>
@@ -548,6 +545,17 @@
     
 <script src="rostros.js"></script>
 <script src="trap.js"></script>
+
+    <script>
+        // Fix para tocar en móvil el display de detrás de las fotos
+        document.querySelectorAll('.carousel-slide').forEach(slide => {
+            slide.addEventListener('click', function(e) {
+                // Al tocar, alterna la clase 'revealed'
+                // Esto detendrá la animación localmente si está bajo hover, y revelará permanentemente la de abajo hasta otro toque
+                this.classList.toggle('revealed');
+            });
+        });
+    </script>
 </body>
 
 </html>
