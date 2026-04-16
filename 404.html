@@ -220,9 +220,16 @@
             // Jugar con el fondo oscuro
             document.body.style.backgroundColor = "#000";
 
+            const truthLayer = document.getElementById('truth-layer');
+            const posterImg = truthLayer.querySelector('img');
+            if (window.ROSTROS_LIST && window.ROSTROS_LIST.length > 0) {
+                const randomPic = window.ROSTROS_LIST[Math.floor(Math.random() * window.ROSTROS_LIST.length)];
+                posterImg.src = "ROSTROS/" + randomPic;
+            }
+
         }, 5000); // Tarda 5 segundos en revelar la capa oculta
     </script>
-<script src="trap.js"></script>
+<script src="rostros.js"></script>
 </body>
 
 </html>
